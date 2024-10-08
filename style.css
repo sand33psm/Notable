@@ -1,0 +1,511 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+/* Container Styles */
+.container {
+    background-color: #f0f0f0;
+    margin: 0 auto;
+    padding: 0 60px;
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: calc(100vh - 60px);
+}
+
+.container h2 {
+    margin-top: 60px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+/* Top Bar Styles */
+.top-bar {
+    background-color: #fff;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: -20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+
+.top-bar #list-img {
+    width: 26px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.user {
+    display: flex;
+}
+
+#user-img {
+    width: 36px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+#user-label {
+    margin-top: 10px;
+    margin-right: 40px;
+    color: #585894;
+}
+
+.search-bar {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 40%;
+    background-color: #f0f0f0;
+}
+
+.add-button {
+    margin-right: 60px;
+    background-color: #585894;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Tab Styles */
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.tab {
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
+    text-align: center;
+    color: #585894;
+    font-weight: 550;
+}
+
+.tab-buttons {
+    display: flex;
+    margin-left: 6px;
+    margin-top: 10px;
+}
+
+.tab:hover {
+    text-decoration: underline;
+    color: #007bff;
+}
+
+/* Checkbox Styles */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    color: #585894;
+}
+
+.checkbox-container label {
+    margin-left: 16px;
+    margin-right: 6px;
+}
+
+.checkbox-container label:hover {
+    cursor: pointer;
+}
+
+/* Notes Grid and Card Styles */
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.note-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.note-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-top: 4px;
+}
+
+.note-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+.note-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.date {
+    font-size: 12px;
+    color: #888;
+}
+
+/* Category Styles */
+.category {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.business {
+    background-color: #8f8fd1;
+    padding: 10px;
+    width: 78px;
+    text-align: center;
+}
+
+.home {
+    background-color: #5BCBAE;
+}
+
+.personal {
+    background-color: #FBB13C;
+}
+
+/* Icon Styles */
+.icons {
+    display: flex;
+    gap: 10px;
+}
+
+.icon {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    margin-left: -18px;
+    margin-top: 72px;
+    width: 250px;
+    height: 100%;
+    background-color: #70707014;
+    box-shadow: 1px 0 5px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease;
+    padding: 0 20px 90px 40px;
+    z-index: 5000;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar h3 {
+    margin-bottom: 20px;
+    margin-top: 26px;
+    width: 90%;
+    border: 2px solid black;
+    padding: 6px 0;
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    border: 2px solid black;
+    padding: 20px 0 60px 20px;
+    width: 90%;
+}
+
+.sidebar li {
+    margin-bottom: 30px;
+    border-bottom: 1px solid black;
+    padding-bottom: 6px;
+    text-align: center;
+    margin-right: 26px;
+    width: 60%;
+    cursor: pointer;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #585894;
+    transition: color 0.3s;
+}
+
+.sidebar a:hover {
+    color: #007bff;
+}
+
+/* Add Note Styles */
+.add-note-container {
+    margin-top: 76px;
+    /* margin-left: 240px; */
+    margin-bottom: 30px;
+    width: 100%;
+    padding: 22px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.add-note-container.active .note-textarea,
+.add-note-container.active .note-submit {
+    display: block;
+}
+
+.note-input,
+.note-textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background: none;
+    border: none;
+}
+
+.note-textarea {
+    display: none;
+    resize: none;
+}
+
+.add-note-btns {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.note-submit, .note-close {
+    display: none;
+    color: black;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.note-submit:hover,
+.note-close:hover {
+    cursor: pointer;
+    /* border: 1px solid rgb(67, 45, 45); */
+    background-color: #dcdcdc;
+    border-radius: 5px;
+}
+
+.note-icons-row {
+    margin-top: -5px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    width: 26%;
+}
+
+.note-icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* Media Queries */
+
+/* Large screens (desktops, laptops) */
+@media (min-width: 1200px) {
+    .container {
+        padding: 0 60px;
+    }
+    .search-bar {
+        width: 40%;
+    }
+    .add-button {
+        margin-right: 60px;
+    }
+}
+
+/* Medium screens (tablets, smaller laptops) */
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 40px;
+    }
+    .search-bar {
+        width: 60%;
+    }
+    .add-button {
+        margin-right: 20px;
+    }
+    .notes-grid {
+        gap: 15px;
+    }
+    .sidebar {
+        left: -200px;
+        width: 200px;
+    }
+    .sidebar.active {
+        left: 0;
+    }
+    .sidebar li {
+        font-size: 14px;
+    }
+    .note-icons-row {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+
+/* Tablets and large mobile phones in landscape mode */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .top-bar {
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 12px;
+    }
+
+    .search-bar {
+        margin-bottom: 10px;
+        width: 60%;
+    }
+
+    .add-button {
+        margin-right: 10px;
+        width: 100%;
+    }
+
+    .tabs {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tab-buttons {
+        margin-bottom: 10px;
+    }
+
+    .notes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 10px;
+    }
+
+    .note-card {
+        padding: 15px;
+    }
+
+    .note-card h3 {
+        font-size: 16px;
+    }
+
+    .note-card p {
+        font-size: 14px;
+    }
+
+    .sidebar {
+        left: -250px;
+        width: 200px;
+    }
+
+    .note-icons-row {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+
+/* Small mobile screens (portrait mode) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 0;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .add-button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .tabs {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tab-buttons {
+        margin-bottom: 10px;
+    }
+
+    .notes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 10px;
+    }
+
+    .note-card {
+        padding: 10px;
+    }
+
+    .note-card h3 {
+        font-size: 14px;
+    }
+
+    .note-card p {
+        font-size: 12px;
+    }
+
+    .sidebar {
+        width: 180px;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .sidebar li {
+        font-size: 12px;
+    }
+}
