@@ -578,7 +578,7 @@ h2 {
     }
 
     .sidebar a {
-        color: #585894; /* Text color */
+        color: black; /* Text color */
         text-decoration: none; /* Remove underline */
     }
 
@@ -597,4 +597,3 @@ h2 {
         margin-left: -6px;
     }
 }
-
