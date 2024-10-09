@@ -1,3 +1,6 @@
+// Variables
+let editingNoteIndex = -1
+
 // DOM Element Selections
 const menuBtn = document.querySelector('#list-img');
 const sidebar = document.querySelector('#sidebar');
@@ -8,7 +11,6 @@ const noteSubmitBtn = document.querySelector('.note-submit');
 const noteCloseBtn = document.querySelector('.note-close');
 const notesGrid = document.querySelector('.notes-grid');
 
-
 // Helper function to fetch the current date
 function fetchDate() {
     const currentDate = new Date();
@@ -17,6 +19,15 @@ function fetchDate() {
     const day = currentDate.getDate();
 
     return `${year}-${month}-${day}`;
+}
+
+// Helper function note input button
+
+function noteInputEnable(){
+    noteInput.placeholder = 'Title';
+    noteTextArea.style.display = 'block';
+    noteSubmitBtn.style.display = 'block';
+    noteCloseBtn.style.display = 'block';
 }
 
 // Toggle sidebar visibility and adjust container padding
@@ -32,11 +43,12 @@ menuBtn.addEventListener('click', () => {
 });
 
 // Display note input fields
-noteInput.addEventListener('click', () => {
-    noteInput.placeholder = 'Title';
-    noteTextArea.style.display = 'block';
-    noteSubmitBtn.style.display = 'block';
-    noteCloseBtn.style.display = 'block';
+noteInput.addEventListener('click', () => {  
+    // Reset input text 
+    // noteSubmitBtn.innerHTML = 'Add Note'
+
+    // Enable note input fields
+    noteInputEnable()
 
     // Close note input fields
     noteCloseBtn.addEventListener('click', () => {
@@ -53,14 +65,29 @@ noteSubmitBtn.addEventListener('click', (e) => {
     const noteDate = fetchDate();
 
     if (inputTitle && noteText) {
+        // Get notes from localStorage
         let notes = getStoredNotes();
 
-        // Add new note to the list
-        notes.push({
-            title: inputTitle,
-            text: noteText,
-            date: noteDate,
-        });
+        // Check whether we have to add or edit note
+        if (editingNoteIndex === -1){
+            // Add new note to the list
+            notes.push({
+                title: inputTitle,
+                text: noteText,
+                date: noteDate,
+            });
+        } else {
+            notes[editingNoteIndex].title = inputTitle
+            notes[editingNoteIndex].text = noteText
+            notes[editingNoteIndex].date = noteDate
+
+            // Reset the editingNoteIndex to add a note
+            editingNoteIndex = -1
+
+            noteSubmitBtn.innerHTML = "Add Note"
+        }
+
+        
 
         // Save notes to localStorage
         localStorage.setItem('notes', JSON.stringify(notes));
@@ -84,9 +111,9 @@ function displayNotes() {
     const notes = getStoredNotes();
     notesGrid.innerHTML = ''; // Clear the notes grid before appending
 
-    notes.forEach((note) => {
+    notes.forEach((note, index) => {
         notesGrid.innerHTML += `
-            <div class="note-card">
+            <div class="note-card" data-index=${index}>
                 <h3>${note.title}</h3>
                 <p>${note.text}</p>
                 <div class="note-footer">
@@ -100,6 +127,47 @@ function displayNotes() {
             </div>
         `;
     });
+
+    setTimeout(() => {
+
+        // Edit a note
+        const editNoteBtns = Array.from(document.querySelectorAll('.edit-note'))                
+
+        editNoteBtns.forEach((btn, index) => {
+            btn.addEventListener('click', (e)=>{
+                // Enable input fields for editing note
+                noteInputEnable()
+    
+                // Set the note values to form fields to edit.
+                noteInput.value = notes[index].title
+                noteTextArea.value = notes[index].text
+
+                // Change the Add Note button to Edit Note
+                noteSubmitBtn.innerHTML = 'Edit Note'
+
+                // Set the editingNoteIndex to edit a specific note
+                editingNoteIndex = index
+    
+    
+            })
+        })
+
+        // Delete a note
+
+        const noteDeleteBtns = Array.from(document.querySelectorAll('.delete-note'))
+        noteDeleteBtns.forEach((btn, index) => {
+            btn.addEventListener('click', (e)=>{
+                noteToDelete = notes[index]
+                notes.splice(index, 1)
+
+                localStorage.setItem('notes', JSON.stringify(notes))
+                displayNotes()
+            })
+        })
+        
+       
+    }, 0);
+    
 }
 
 // Reset note input fields and hide text area and buttons
@@ -111,11 +179,6 @@ function resetNoteInputFields() {
     noteSubmitBtn.style.display = 'none';
     noteCloseBtn.style.display = 'none';
 }
-
-// Edit a note 
-
-
-
 
 // On page load, display notes
 document.addEventListener('DOMContentLoaded', displayNotes);
