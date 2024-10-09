@@ -53,6 +53,23 @@ h2 {
     z-index: 100;
 }
 
+.app-name {
+    font-size: 22px; /* Font size */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Use a clean, modern font */
+    font-weight: 600; /* Slightly bolder weight */
+    color: #4B565E; /* A simple, dark gray color */
+    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); */
+    letter-spacing: 1px; /* Slight spacing for clarity */
+    margin: 0 20px; /* Space around the name */
+    transition: color 0.3s; /* Smooth color transition on hover */
+}
+
+.app-name:hover {
+    color: #555; /* Change color on hover for interaction */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+}
+
+
 .top-bar #list-img {
     width: 26px;
     margin-left: 20px;
@@ -71,7 +88,8 @@ h2 {
 }
 
 #user-label {
-    color: #585894;
+    margin-left: -22px;
+    cursor: pointer;
 }
 
 .search-bar {
@@ -233,7 +251,7 @@ h2 {
 .sidebar h3 {
     margin: 26px 0 20px; /* Combined margin-top and margin-bottom */
     width: 90%;
-    border: 2px solid black;
+    border: 1px solid black;
     padding: 6px 0;
     text-align: center;
 }
@@ -241,7 +259,7 @@ h2 {
 .sidebar ul {
     list-style: none;
     padding: 0;
-    border: 2px solid black;
+    border: 1px solid gray;
     padding: 20px 0 60px 20px;
     width: 90%;
 }
@@ -258,7 +276,7 @@ h2 {
 
 .sidebar a {
     text-decoration: none;
-    color: #585894;
+    color: black;
     transition: color 0.3s;
 }
 
@@ -472,12 +490,13 @@ h2 {
 
     /* Search bar styles */
     .search-bar {
-        width: 60%; /* Increase width for better usability */
+        width: 56%; /* Increase width for better usability */
         margin: 0; /* Reset margin for better positioning */
         padding: 8px; /* Add padding for a comfortable touch area */
         border-radius: 5px; /* Slightly round the corners */
         border: 1px solid #ccc; /* Add a border */
         margin-left: -14px;
+        margin-right: 16px;
     }
 
     /* Add button styles */
@@ -565,6 +584,17 @@ h2 {
 
     .sidebar a:hover {
         color: #007bff; /* Change color on hover */
+    }
+
+    .app-name {
+        font-size: 16px; 
+        font-family: 'Comic Sans MS', cursive, sans-serif; 
+        font-weight: 600;
+        color: #4B565E; 
+        letter-spacing: 1px; 
+        /* margin: 0 20px;  */
+        transition: color 0.3s; 
+        margin-left: -6px;
     }
 }
 
