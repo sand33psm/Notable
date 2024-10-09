@@ -8,6 +8,7 @@ const noteSubmitBtn = document.querySelector('.note-submit');
 const noteCloseBtn = document.querySelector('.note-close');
 const notesGrid = document.querySelector('.notes-grid');
 
+
 // Helper function to fetch the current date
 function fetchDate() {
     const currentDate = new Date();
@@ -91,9 +92,9 @@ function displayNotes() {
                 <div class="note-footer">
                     <span class="date">${note.date}</span>
                     <div class="icons">
-                        <span class="icon">🗹</span>
-                        <span class="icon">✎</span>
-                        <span class="icon">🗑</span>
+                        <span class="icon note-completion"><i class="fas fa-check-circle"></i></span>
+                        <span class="icon edit-note"><i class="fas fa-edit"></i></span>
+                        <span class="icon delete-note"><i class="fas fa-trash-alt"></i></span>
                     </div>
                 </div>
             </div>
@@ -110,6 +111,11 @@ function resetNoteInputFields() {
     noteSubmitBtn.style.display = 'none';
     noteCloseBtn.style.display = 'none';
 }
+
+// Edit a note 
+
+
+
 
 // On page load, display notes
 document.addEventListener('DOMContentLoaded', displayNotes);

@@ -6,9 +6,25 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
     padding: 20px;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 26px;
+    margin: 60px 0 20px; /* Added margin-top for consistency */
+}
+
+.sidebar h3 {
+    font-weight: 500;
+}
+
+.note-card p {
+    font-weight: 400;
+    font-size: 14px;
+    color: #444;
 }
 
 /* Container Styles */
@@ -19,14 +35,6 @@ body {
     flex-grow: 1;
     overflow-y: auto;
     max-height: calc(100vh - 60px);
-}
-
-.container h2 {
-    margin-top: 60px;
-}
-
-h2 {
-    margin-bottom: 20px;
 }
 
 /* Top Bar Styles */
@@ -45,7 +53,6 @@ h2 {
     z-index: 100;
 }
 
-
 .top-bar #list-img {
     width: 26px;
     margin-left: 20px;
@@ -54,17 +61,16 @@ h2 {
 
 .user {
     display: flex;
+    align-items: center;
 }
 
 #user-img {
     width: 36px;
-    margin-right: 20px;
+    margin-right: 10px;
     cursor: pointer;
 }
 
 #user-label {
-    margin-top: 10px;
-    margin-right: 40px;
     color: #585894;
 }
 
@@ -152,13 +158,7 @@ h2 {
 
 .note-card h3 {
     font-size: 18px;
-    margin-bottom: 10px;
-    margin-top: 4px;
-}
-
-.note-card p {
-    font-size: 14px;
-    color: #555;
+    margin: 4px 0 10px; /* Combined margin-top and margin-bottom */
 }
 
 .note-footer {
@@ -185,9 +185,6 @@ h2 {
 
 .business {
     background-color: #8f8fd1;
-    padding: 10px;
-    width: 78px;
-    text-align: center;
 }
 
 .home {
@@ -234,8 +231,7 @@ h2 {
 }
 
 .sidebar h3 {
-    margin-bottom: 20px;
-    margin-top: 26px;
+    margin: 26px 0 20px; /* Combined margin-top and margin-bottom */
     width: 90%;
     border: 2px solid black;
     padding: 6px 0;
@@ -272,9 +268,7 @@ h2 {
 
 /* Add Note Styles */
 .add-note-container {
-    margin-top: 76px;
-    /* margin-left: 240px; */
-    margin-bottom: 30px;
+    margin: 76px 0 30px; /* Combined margin-top and margin-bottom */
     width: 100%;
     padding: 22px;
     border: 1px solid #ccc;
@@ -283,20 +277,13 @@ h2 {
     transition: all 0.3s ease-in-out;
 }
 
-.add-note-container.active .note-textarea,
-.add-note-container.active .note-submit {
-    display: block;
-}
-
 .note-input,
 .note-textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
     font-size: 16px;
-    background: none;
+    background-color: #f4f4f4;
     border: none;
 }
 
@@ -311,7 +298,8 @@ h2 {
     justify-content: space-between;
 }
 
-.note-submit, .note-close {
+.note-submit,
+.note-close {
     display: none;
     color: black;
     border: none;
@@ -323,7 +311,6 @@ h2 {
 .note-submit:hover,
 .note-close:hover {
     cursor: pointer;
-    /* border: 1px solid rgb(67, 45, 45); */
     background-color: #dcdcdc;
     border-radius: 5px;
 }
@@ -342,7 +329,6 @@ h2 {
     height: 20px;
     cursor: pointer;
 }
-
 /* Media Queries */
 
 /* Large screens (desktops, laptops) */
@@ -583,5 +569,3 @@ h2 {
     /* ksfldsdl */
     
 }
-
-

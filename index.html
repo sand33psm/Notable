@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notable - Task Management Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <!-- Top Bar -->
     <div class="top-bar">  
-        <img src="images/list.png" id="list-img" alt="">
+        <i id="list-img" class="fas fa-bars"></i>
         <input type="text" class="search-bar" placeholder="Search">
         <div class="user">
-            <img src="images/user.png" id="user-img" alt="">
+            <i id="user-img" class="fas fa-user-circle"></i>
             <label for="user-img" id="user-label">sndp</label>
         </div>
     </div>
@@ -21,11 +24,11 @@
     <div class="sidebar" id="sidebar">
         <h3>Menu</h3>
         <ul>
-            <li><a href="#">Notes</a></li>
-            <li><a href="#">Archive</a></li>
-            <li><a href="#">Edit</a></li>
-            <li><a href="#">Remainder</a></li>
-            <li><a href="#">Bin</a></li>
+            <li><a href="#"><i class="fas fa-sticky-note"></i> Notes</a></li>
+            <li><a href="#"><i class="fas fa-archive"></i> Archive</a></li>
+            <li><a href="#"><i class="fas fa-edit"></i> Edit</a></li>
+            <li><a href="#"><i class="fas fa-bell"></i> Remainder</a></li>
+            <li><a href="#"><i class="fas fa-trash"></i> Bin</a></li>
 
         </ul>
     </div>
@@ -39,11 +42,11 @@
                 <input type="text" id="note-title" placeholder="Add a note" class="note-input" />
                 <textarea id="note-content" placeholder="Add a note..." class="note-textarea"></textarea>
                 <div class="note-icons-row">
-                    <img src="images/deal.png" alt="Image Icon" class="note-icon">
-                    <img src="images/image_icon.png" alt="Image Icon" class="note-icon">
-                    <img src="images/archive.png" alt="Image Icon" class="note-icon">
-                    <img src="images/paint-bucket.png" alt="Image Icon" class="note-icon">
-                    <img src="images/more.png" alt="Image Icon" class="note-icon">
+                    <i class="fas fa-handshake"></i> <!-- Deal -->
+                    <i class="fas fa-image"></i> <!-- Image -->
+                    <i class="fas fa-archive"></i> <!-- Archive -->
+                    <i class="fas fa-paint-brush"></i> <!-- Paint Bucket -->
+                    <i class="fas fa-ellipsis-h"></i> <!-- More -->
 
                 </div>
 
@@ -57,12 +60,6 @@
 
 
         <div class="tabs">
-            <!-- <div class="tab-buttons">
-                <button class="tab">ALL</button>
-                <button class="tab">PERSONAL</button>
-                <button class="tab">HOME</button>
-                <button class="tab">BUSINESS</button>
-            </div> -->
             <div class="checkbox-container">
                 <input type="checkbox" id="completed-notes">
                 <label for="completed-notes">Show only completed notes</label>
