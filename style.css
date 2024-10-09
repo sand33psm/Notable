@@ -434,46 +434,61 @@ h2 {
         width: 100%;
     }
 }
-
+/* Small mobile screens (portrait mode) */
 /* Small mobile screens (portrait mode) */
 @media (max-width: 480px) {
+    /* Container styles */
     .container {
         padding: 0 10px;
     }
 
+    /* Top bar styles */
     .top-bar {
         flex-direction: row;
-        align-items: flex-start;
+        align-items: center; /* Center items vertically */
+        justify-content: space-around; /* Space between items */
         padding: 8px;
     }
 
-    #user-label {
-        margin-bottom: 6px;
-        margin-right: 10px;
-    }
-
     .top-bar #list-img {
-        display: none;
+        display: none; /* Hide image for a cleaner look */
     }
 
-    .search-bar {
-        width: 50%;
-        margin-bottom: 20px;
-        margin-top: 3px;
-        padding: 6px;
+    .user {
+        margin-left: -10px;
     }
 
+    /* User image styles */
     .user img {
-        margin-left: -60px
+        margin-left: 0; /* Reset margin for better alignment */
+        width: 40px; /* Set a fixed width for the profile image */
+        height: 40px; /* Set a fixed height for the profile image */
+        border-radius: 50%; /* Make the image circular */
     }
 
+    #user-label {
+        margin-left: -22px;
+    }
+
+    /* Search bar styles */
+    .search-bar {
+        width: 60%; /* Increase width for better usability */
+        margin: 0; /* Reset margin for better positioning */
+        padding: 8px; /* Add padding for a comfortable touch area */
+        border-radius: 5px; /* Slightly round the corners */
+        border: 1px solid #ccc; /* Add a border */
+        margin-left: -14px;
+    }
+
+    /* Add button styles */
     .add-button {
         width: 100%;
-        margin-bottom: 10px;
+        margin-top: 10px; /* Space above button */
     }
 
+    /* Tab styles */
     .tabs {
-        flex-direction: column;
+        flex-direction: column; /* Stack tabs vertically */
         align-items: flex-start;
     }
 
@@ -481,14 +496,18 @@ h2 {
         margin-bottom: 10px;
     }
 
+    /* Mid-section styles */
     .mid-section {
-        margin-top: -50px;
+        margin-top: -20px; /* Adjust margin for visual balance */
     }
+
+    /* Notes grid styles */
     .notes-grid {
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
         gap: 10px;
     }
 
+    /* Note card styles */
     .note-card {
         padding: 20px;
     }
@@ -501,38 +520,23 @@ h2 {
         font-size: 12px;
     }
 
-    /* .sidebar {
-        width: 180px;
-    } */
-
-    /* .sidebar.active {
-        left: 0;
-    }
-
-    .sidebar li {
-        font-size: 12px;
-    } */
-
-    /* jsfjdfk */
+    /* Sidebar styles */
     .sidebar {
         position: relative;
         left: 0;
         top: auto;
         width: 100%;
         height: auto;
-        background-color: transparent;
-        box-shadow: none;
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-around; /* Space items evenly */
         align-items: center;
         padding: 10px 0;
         margin-left: 0;
-        /* margin-top: 20px; */
     }
 
     .sidebar h3 {
-        display : none;
+        display: none; /* Keep this hidden or remove if needed */
     }
 
     .sidebar ul {
@@ -546,8 +550,7 @@ h2 {
 
     .sidebar li {
         margin: 0;
-        border-bottom: none;
-        padding: 0;
+        padding: 10px 15px; /* Add padding for clickable area */
         font-size: 12px;
     }
 
@@ -555,17 +558,13 @@ h2 {
         margin-left: 10px;
     }
 
-    .sidebar.active {
-        left: 0;
-    }
-
     .sidebar a {
-        color: #585894;
+        color: #585894; /* Text color */
+        text-decoration: none; /* Remove underline */
     }
 
     .sidebar a:hover {
-        color: #007bff;
+        color: #007bff; /* Change color on hover */
     }
-    /* ksfldsdl */
-    
 }
+
