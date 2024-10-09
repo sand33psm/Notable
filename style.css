@@ -459,7 +459,6 @@ h2 {
         flex-direction: row;
         align-items: flex-start;
         padding: 8px;
-        /* margin-bottom: 20px; */
     }
 
     #user-label {
@@ -473,7 +472,7 @@ h2 {
 
     .search-bar {
         width: 50%;
-        margin-bottom: 3px;
+        margin-bottom: 20px;
         margin-top: 3px;
         padding: 6px;
     }
