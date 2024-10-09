@@ -177,7 +177,7 @@ function resetNoteInputFields() {
     noteTextArea.value = '';
     noteTextArea.style.display = 'none';
     noteSubmitBtn.style.display = 'none';
-    noteCloseBtn.style.display = 'none';
+    noteCloseBtn.style.display = 'none';    
 }
 
 // On page load, display notes
