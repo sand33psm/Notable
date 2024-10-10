@@ -133,13 +133,17 @@ h2 {
 
 .tab-buttons {
     display: flex;
-    margin-left: 6px;
+    margin-left: 6px;   
     margin-top: 10px;
 }
 
 .tab:hover {
     text-decoration: underline;
     color: #007bff;
+}
+
+.add-note-icons {
+    cursor: pointer;
 }
 
 /* Checkbox Styles */
