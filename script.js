@@ -164,23 +164,7 @@ function displayNotes() {
                 displayNotes()
             })
         })
-
-        // Show a selected note.
-
-        selectedNoteBox = Array.from(document.querySelectorAll('.note-card'))
-        console.log(selectedNoteBox);
-
-        
-        selectedNoteBox.forEach((noteBox, index) => {
-
-            noteBox.addEventListener('click', (e)=>{
-
-                window.location.href = "displayNotes.html"
-            })
-        })
-        
-        
-       
+              
     }, 0);
     
 }
