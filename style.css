@@ -229,6 +229,10 @@ h2 {
     font-size: 18px;
 }
 
+/* .note-completion {
+    display: none;
+} */
+
 /* Sidebar Styles */
 .sidebar {
     display: flex;

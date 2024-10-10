@@ -10,6 +10,7 @@ const noteTextArea = document.querySelector('.note-textarea');
 const noteSubmitBtn = document.querySelector('.note-submit');
 const noteCloseBtn = document.querySelector('.note-close');
 const notesGrid = document.querySelector('.notes-grid');
+const noteCompletionCheckBox = document.querySelector('#completed-notes')
 
 // Helper function to fetch the current date
 function fetchDate() {
@@ -75,6 +76,7 @@ noteSubmitBtn.addEventListener('click', (e) => {
                 title: inputTitle,
                 text: noteText,
                 date: noteDate,
+                isCompleted: false,
             });
         } else {
             notes[editingNoteIndex].title = inputTitle
@@ -108,10 +110,32 @@ function getStoredNotes() {
 
 // Display notes on the grid
 function displayNotes() {
-    const notes = getStoredNotes();
+    const allNotes = getStoredNotes();
+    var notes
+    if (noteCompletionCheckBox.checked) {
+        notes = allNotes.filter((note) => {
+            return note.isCompleted === true;
+        })     
+
+    } else {
+        notes = allNotes
+    }
+
+    console.log(allNotes);
+    console.log(notes);
+    
+    
+ 
     notesGrid.innerHTML = ''; // Clear the notes grid before appending
 
     notes.forEach((note, index) => {
+        var checkBtn
+        if (note.isCompleted == false){
+            checkBtn = `<i class="fa-regular fa-circle-check"></i>`
+        } else {
+            checkBtn = `<i class="fa-solid fa-circle-check"></i>`
+        }
+
         notesGrid.innerHTML += `
             <div class="note-card" data-index=${index}>
                 <h3>${note.title}</h3>
@@ -119,7 +143,7 @@ function displayNotes() {
                 <div class="note-footer">
                     <span class="date">${note.date}</span>
                     <div class="icons">
-                        <span class="icon note-completion"><i class="fas fa-check-circle"></i></span>
+                        <span class="icon note-status">${checkBtn}</span>
                         <span class="icon edit-note"><i class="fas fa-edit"></i></span>
                         <span class="icon delete-note"><i class="fas fa-trash-alt"></i></span>
                     </div>
@@ -128,46 +152,70 @@ function displayNotes() {
         `;
     });
 
-    setTimeout(() => {
 
-        // Edit a note
-        const editNoteBtns = Array.from(document.querySelectorAll('.edit-note'))                
+    // Edit a note
+    const editNoteBtns = Array.from(document.querySelectorAll('.edit-note'))                
 
-        editNoteBtns.forEach((btn, index) => {
-            btn.addEventListener('click', (e)=>{
-                // Enable input fields for editing note
-                noteInputEnable()
-    
-                // Set the note values to form fields to edit.
-                noteInput.value = notes[index].title
-                noteTextArea.value = notes[index].text
+    editNoteBtns.forEach((btn, index) => {
+        btn.addEventListener('click', (e)=>{
+            // Enable input fields for editing note
+            noteInputEnable()
 
-                // Change the Add Note button to Edit Note
-                noteSubmitBtn.innerHTML = 'Edit Note'
+            // Set the note values to form fields to edit.
+            noteInput.value = notes[index].title
+            noteTextArea.value = notes[index].text
 
-                // Set the editingNoteIndex to edit a specific note
-                editingNoteIndex = index
-    
-    
-            })
+            // Change the Add Note button to Edit Note
+            noteSubmitBtn.innerHTML = 'Edit Note'
+
+            // Set the editingNoteIndex to edit a specific note
+            editingNoteIndex = index
+
+
         })
+    })
 
-        // Delete a note
+    // Delete a note
 
-        const noteDeleteBtns = Array.from(document.querySelectorAll('.delete-note'))
-        noteDeleteBtns.forEach((btn, index) => {
-            btn.addEventListener('click', (e)=>{
-                noteToDelete = notes[index]
-                notes.splice(index, 1)
+    const noteDeleteBtns = Array.from(document.querySelectorAll('.delete-note'))
+    noteDeleteBtns.forEach((btn, index) => {
+        btn.addEventListener('click', (e)=>{
+            noteToDelete = notes[index]
+            notes.splice(index, 1)
 
+            localStorage.setItem('notes', JSON.stringify(notes))
+            displayNotes()
+        })
+    })
+
+    // Note status
+    noteStatusBtns = Array.from(document.querySelectorAll('.note-status'))
+    noteStatusBtns.forEach((btn, index)=>{
+        btn.addEventListener('click', (e)=>{
+            if (notes[index].isCompleted == false) {
+                console.log("Trueeee");
+                
+                notes[index].isCompleted = true
                 localStorage.setItem('notes', JSON.stringify(notes))
-                displayNotes()
-            })
+                
+            } else {                   
+                notes[index].isCompleted = false                    
+                localStorage.setItem('notes', JSON.stringify(notes))
+            }
+
+            displayNotes()
+
         })
-              
-    }, 0);
-    
+        
+    })
+            
 }
+
+// Show only completed notes
+noteCompletionCheckBox.addEventListener('change', (e)=>{
+    displayNotes()    
+})
+
 
 // Reset note input fields and hide text area and buttons
 function resetNoteInputFields() {
