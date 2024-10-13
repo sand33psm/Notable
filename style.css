@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /*color: #fff;*/
+    color: var(--secondary-color);
 }
 
 :root{
@@ -36,6 +36,10 @@ h2 {
 .note-card p {
     font-weight: 400;
     font-size: 14px;
+    color: var(--secondary-color);
+}
+
+.note-input::placeholder{
     color: var(--secondary-color);
 }
 
@@ -337,6 +341,12 @@ h4{
 #note-content::placeholder{
     color: var(--secondary-color);
     font-size:120%;
+}
+.note-input::placeholder{
+    color: var(--secondary-color);
+}
+.note-textarea::placeholder{
+    color: var(--secondary-color);
 }
 
 .note-input,
