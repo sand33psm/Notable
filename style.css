@@ -3,11 +3,22 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /*color: #fff;*/
+}
+
+:root{
+    --primary-color:#fff;
+    --secondary-color: #1d2630;
+}
+
+.dark-theme{
+    --primary-color: #1d2630;
+    --secondary-color: #edf2fc;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--primary-color);
     padding: 20px;
 }
 
@@ -19,17 +30,18 @@ h2 {
 
 .sidebar h3 {
     font-weight: 500;
+    color: var(--secondary-color);
 }
 
 .note-card p {
     font-weight: 400;
     font-size: 14px;
-    color: #444;
+    color: var(--secondary-color);
 }
 
 /* Container Styles */
 .container {
-    background-color: #f0f0f0;
+    background-color: var(--primary-color);
     margin: 0 auto;
     padding: 0 60px;
     flex-grow: 1;
@@ -39,7 +51,7 @@ h2 {
 
 /* Top Bar Styles */
 .top-bar {
-    background-color: #fff;
+    background-color: var(--primary-color);
     padding: 16px;
     display: flex;
     justify-content: space-between;
@@ -57,7 +69,7 @@ h2 {
     font-size: 22px; /* Font size */
     font-family: 'Comic Sans MS', cursive, sans-serif; /* Use a clean, modern font */
     font-weight: 600; /* Slightly bolder weight */
-    color: #4B565E; /* A simple, dark gray color */
+    color: var(--secondary-color);/* #4B565E;  A simple, dark gray color */
     /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); */
     letter-spacing: 1px; /* Slight spacing for clarity */
     margin: 0 20px; /* Space around the name */
@@ -66,7 +78,7 @@ h2 {
 }
 
 .app-name:hover {
-    color: #555; /* Change color on hover for interaction */
+    color: var(--secondary-color); /* #555; Change color on hover for interaction */
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
 }
 
@@ -80,6 +92,7 @@ h2 {
 .user {
     display: flex;
     align-items: center;
+    color: var(--secondary-color);
 }
 
 #user-img {
@@ -92,19 +105,34 @@ h2 {
     margin-left: -22px;
     cursor: pointer;
 }
+h4{
+    margin-right: 40px;
+}
+
+#icon{
+    width: 25px;
+    cursor: pointer;
+    margin-right: 30px;
+}
 
 .search-bar {
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 2px solid var(--secondary-color);
     border-radius: 6px;
     width: 40%;
-    background-color: #f0f0f0;
+    background: var(--primary-color);
+    
+}
+
+.search-bar::placeholder{
+    color: var(--secondary-color);
+    font-size: medium;
 }
 
 .add-button {
     margin-right: 60px;
     background-color: #585894;
-    color: #fff;
+    color: var(--secondary-color);
     border: none;
     padding: 10px 20px;
     border-radius: 6px;
@@ -119,8 +147,7 @@ h2 {
     align-items: center;
     margin-bottom: 20px;
 }
-
-.tab {
+.tabs {
     text-decoration: none;
     transition: all 0.3s ease;
     border: none;
@@ -170,7 +197,7 @@ h2 {
 }
 
 .note-card {
-    background-color: #fff;
+    background-color: var(--primary-color);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -193,7 +220,7 @@ h2 {
 
 .date {
     font-size: 12px;
-    color: #888;
+    color: var(--secondary-color);/*grey */
 }
 
 /* Category Styles */
@@ -202,7 +229,7 @@ h2 {
     padding: 5px 10px;
     border-radius: 20px;
     font-size: 12px;
-    color: #fff;
+    color: var(--secondary-color);
     margin-bottom: 10px;
 }
 
@@ -246,7 +273,7 @@ h2 {
     margin-top: 72px;
     width: 250px;
     height: 100%;
-    background-color: #70707014;
+    background-color: var(--primary-color);
     box-shadow: 1px 0 5px rgba(0, 0, 0, 0.2);
     transition: left 0.3s ease;
     padding: 0 20px 90px 40px;
@@ -260,7 +287,7 @@ h2 {
 .sidebar h3 {
     margin: 26px 0 20px; /* Combined margin-top and margin-bottom */
     width: 90%;
-    border: 1px solid black;
+    border: 1px solid var(--secondary-color);
     padding: 6px 0;
     text-align: center;
 }
@@ -268,14 +295,14 @@ h2 {
 .sidebar ul {
     list-style: none;
     padding: 0;
-    border: 1px solid gray;
+    border: 1px solid var(--secondary-color);
     padding: 20px 0 60px 20px;
     width: 90%;
 }
 
 .sidebar li {
     margin-bottom: 30px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--secondary-color);
     padding-bottom: 6px;
     text-align: center;
     margin-right: 26px;
@@ -285,7 +312,7 @@ h2 {
 
 .sidebar a {
     text-decoration: none;
-    color: black;
+    color: var(--secondary-color);
     transition: color 0.3s;
 }
 
@@ -303,6 +330,14 @@ h2 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-in-out;
 }
+#note-title::placeholder{
+    color: var(--secondary-color);
+    font-size: large;
+}
+#note-content::placeholder{
+    color: var(--secondary-color);
+    font-size:120%;
+}
 
 .note-input,
 .note-textarea {
@@ -310,13 +345,13 @@ h2 {
     padding: 10px;
     margin-bottom: 10px;
     font-size: 16px;
-    background-color: #f4f4f4;
+    background-color: var(--primary-color);
     border: none;
 }
 
 .note-textarea {
     display: none;
-    resize: none;
+    /*resize: none;*/
 }
 
 .add-note-btns {
@@ -328,7 +363,8 @@ h2 {
 .note-submit,
 .note-close {
     display: none;
-    color: black;
+    color:#1d2630;
+    /*background-color: var(--secondary-color);*/
     border: none;
     padding: 10px;
     cursor: pointer;
@@ -338,7 +374,7 @@ h2 {
 .note-submit:hover,
 .note-close:hover {
     cursor: pointer;
-    background-color: #dcdcdc;
+    background-color: var(--primary-color);
     border-radius: 5px;
 }
 
@@ -587,7 +623,7 @@ h2 {
     }
 
     .sidebar a {
-        color: black; /* Text color */
+        color: var(--secondary-color); /* Text color */
         text-decoration: none; /* Remove underline */
     }
 
@@ -599,7 +635,7 @@ h2 {
         font-size: 16px; 
         font-family: 'Comic Sans MS', cursive, sans-serif; 
         font-weight: 600;
-        color: #4B565E; 
+        color: var(--secondary-color);/*#4B565E; */
         letter-spacing: 1px; 
         /* margin: 0 20px;  */
         transition: color 0.3s; 

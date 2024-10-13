@@ -22,6 +22,20 @@ function fetchDate() {
     return `${year}-${month}-${day}`;
 }
 
+// added a theme 
+
+var icon = document.getElementById("icon");
+
+icon.onclick = function(){
+    document.body.classList.toggle("dark-theme");
+    if(document.body.classList.contains("dark-theme")) {
+        icon.src = "sun.png";
+    }else{
+        icon.src = "moon.png";
+    }
+}
+
+
 // Helper function note input button
 
 function noteInputEnable(){
