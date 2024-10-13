@@ -379,6 +379,8 @@ h4{
     padding: 10px;
     cursor: pointer;
     font-size: 18px;
+    border-radius: 5px;
+
 }
 
 .note-submit:hover,
@@ -386,6 +388,7 @@ h4{
     cursor: pointer;
     background-color: var(--primary-color);
     border-radius: 5px;
+    color: var(--secondary-color);
 }
 
 .note-icons-row {
