@@ -29,9 +29,9 @@ var icon = document.getElementById("icon");
 icon.onclick = function(){
     document.body.classList.toggle("dark-theme");
     if(document.body.classList.contains("dark-theme")) {
-        icon.src = "sun.png";
+        icon.src = "images/sun.png";
     }else{
-        icon.src = "moon.png";
+        icon.src = "images/moon.png";
     }
 }
 
@@ -214,7 +214,7 @@ function displayNotes() {
                 
             } else {                   
                 notes[index].isCompleted = false                    
-                localStorage.setItem('notes', JSON.stringify(notes))
+                localStorage.setItem('notes', JSON.stringify(allNotes))
             }
 
             displayNotes()
