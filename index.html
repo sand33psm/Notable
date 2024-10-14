@@ -51,7 +51,8 @@
          <div class="mid-section">
             <div class="add-note-container">
                 <input type="text" id="note-title" placeholder="Add A Note" class="note-input"/>
-                <textarea id="note-content" placeholder="Add A Note..." class="note-textarea"></textarea>
+                <textarea id="note-content" placeholder="Add A Note..." class="note-textarea" rows="1"
+                style="overflow: hidden;" oninput="autoResize(this)"></textarea>
                 
 
                 <div class="add-note-btns">

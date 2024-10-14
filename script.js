@@ -35,7 +35,11 @@ icon.onclick = function(){
     }
 }
 
-
+// AutoResize textarea
+function autoResize(textarea){
+    textarea.style.height = 'auto'; //Reset the height
+    textarea.style.height = textarea.scrollHeight + 'px'; //Set new height based on scrollHeight
+};
 // Helper function note input button
 
 function noteInputEnable(){
